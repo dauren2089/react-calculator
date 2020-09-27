@@ -35,34 +35,32 @@ export default class App extends Component {
         })
     }
     handleEqual = () => {
-        let sum;
+        let total;
         let operation = this.state.operation;
         let number1 = parseFloat(this.state.value);
         let number2 = parseFloat(this.state.setValue);
 
         if (operation === '+') {
-            sum = number2 + number1;
+            total = number2 + number1;
         } else if (operation === '-') {
-            sum = number2 - number1;
+            total = number2 - number1;
         } else if (operation === '*'){
-            sum = number2 * number1;
+            total = number2 * number1;
         } else if (operation === '/') {
-            sum = number2 / number1;
+            total = number2 / number1;
         } else if (operation === '%') {
-            sum = number1 / 100;
-        } else if (typeof sum === "undefined") {
+            total = number1 / 100;
+        } else if (typeof total === "undefined") {
             return
         }
 
-        // const val = sum.toString();
-
-        if (sum.toString().length >= 9) {
+        if (total.toString().length >= 9) {
             this.setState({
-                value: sum.toPrecision(8).toString()
+                value: total.toPrecision(8).toString()
             })
         } else {
             this.setState({
-                value: sum.toString()
+                value: total.toString()
             })
         }
 
@@ -87,9 +85,9 @@ export default class App extends Component {
     }
     handleSign = () => {
         let number = parseFloat(this.state.value);
-        let sum = number * (-1);
+        let total = number * (-1);
         this.setState({
-            value: sum
+            value: total
         })
     }
     addNbrDot = () => {
@@ -107,7 +105,6 @@ export default class App extends Component {
                 value: this.state.value + '.'
             })
         }
-
     }
     handleAC = () => {
         this.setState({
